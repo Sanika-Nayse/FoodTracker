@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-food-tracker
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-food-tracker
+  template:
+    metadata:
+      labels:
+        app: flask-food-tracker
+    spec:
+      containers:
+      - name: flask-container
+        image: sanikanayse/flask-food-tracker-app
+        ports:
+        - containerPort: 5000
